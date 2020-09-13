@@ -1,4 +1,5 @@
 ##Assignment 3
+## This assignment is for finding matrix inverse using functions as given below
 ##This function creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
