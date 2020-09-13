@@ -1,15 +1,16 @@
 ##Assignment 3
 ## This assignment is for finding matrix inverse using functions as given below
-##This function creates a special "matrix" object that can cache its inverse
+##makeCacheMatrix function creates a special "matrix" object that can cache its inverse
+##it consists of set, get, setInverse and getInverse functions
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
+  m <- NULL         #initially inverse will be set as NULL
   set <- function(y){
     x <<- y
-    m <<- NULL
+    m <<- NULL      
   }
-  get <- function()x
+  get <- function()x    #function to get matrix x
   setInverse <- function(inverse) m <<- inverse
-  getInverse <- function() m
+  getInverse <- function() m    # function to get inverse of matrix x
   list(set = set, get = get, 
        setInverse = setInverse,
        getInverse = getInverse)
@@ -17,13 +18,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ##This function computes inverse of special "matrix" returned by makeCacheMatrix
 cacheSolve <- function(x, ...) {
   m <- x$getInverse()
-  if(!is.null(m)){
+  if(!is.null(m)){            #checks if inverse is NULL
     message("getting cached data")
-    return(m)
+    return(m)                 # returns value of inverse
   }
   data <- x$get()
-  m <- solve(data,...)
+  m <- solve(data,...)        # function"solve" calcualtes inverse
   x$setInverse(m)
-  m
+  m                           #returns inverse of matrix x
 }
 
